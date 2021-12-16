@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graphql/client.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-
 const productsGraphql = """
-query products (\$first: 10, channel: "default-channel") {
+ query products {products(first: 6, channel: "default-channel") {
     edges {
       node {
         id
@@ -14,7 +12,7 @@ query products (\$first: 10, channel: "default-channel") {
         }
       }
     }
-  }
+  }}
 """;
 void main() {
   final HttpLink httplink = HttpLink("https://demo.saleor.io/graphql/");
@@ -33,11 +31,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'GraphQL Flutter demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.orange,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'GraphQL Flutter demo'),
     );
   }
 }
