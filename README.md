@@ -1,2 +1,2 @@
 # flutter_ecommerce
-[store](assets/ss/ssdemo.png)
+![store](assets/ss/ssdemo.png)
